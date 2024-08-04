@@ -38,5 +38,5 @@ def doSignup():
     else:
         return render_template('Login.html',msg ='Sign up successful' )
 
-app.run()
+app.run(debug=True)
 
