@@ -1,0 +1,148 @@
+/* Resetting some default styles */
+body, h1, h2, h3, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    padding-top: 5px;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+
+
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #fff 3px solid;
+    position: relative;
+}
+header h1 {
+    text-align: center;
+    margin: 0;
+}
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin: 10px 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.auth-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding-bottom: 5px;
+}
+.auth-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+.hero {
+    background: url('https://images.wallpapersden.com/image/download/firewatch-4k-uhd_bWVuZ2qUmZqaraWkpJRma2VlrWtlZQ.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 4em;
+}
+.hero p {
+    font-size: 1.2em;
+}
+.content {
+    padding: 20px 0;
+}
+.content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content .box {
+    background: #fff;
+    background-image: cover url(https://wallpaperbat.com/img/662827-watercolor-leaves-desktop-wallpaper-top-free-watercolor-leaves-desktop-background.jpg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 15px;
+    text-align: center;
+}
+.content .box img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.content .box h3 {
+    margin-top: 15px;
+}
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer p {
+    margin: 0;
+}
+/* Form styles */
+.auth-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 300px;
+}
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.auth-form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.auth-form input[type="submit"]:hover {
+    background: #555;
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .content .box {
+        margin: 15px 0;
+    }
+    .auth-form {
+        width: 90%;
+    }
+}

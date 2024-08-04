@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐒 Monk Key</title>
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>My Potfolio Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links">
+                <a href="/Login" id="loginBtn">Login</a>
+                <a href="/Signup" id="signupBtn">Signup</a>
+            </div>
+            <br>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to my world of projects ✨</h1>
+            <p>Showcasing some of my cute little projects 🤩💖</p>
+        </div>
+    </div>
+
+    <div class="content container">
+        <h2>Our Services</h2>
+        <div class="box">
+            <img src="{{url_for('static', filename= 'NER.png')}}" alt="Service 1">
+            <h3>Named Entity Recognition</h3>
+            <p>Named Entity Recognition (NER) is a natural language processing technique that identifies and classifies
+                entities in text into categories like people, organizations, locations, and dates. For instance, it can
+                recognize "Apple Inc." as a company and "San Francisco" as a city in a sentence.</p>
+        </div>
+        <div class="box">
+            <img src="{{url_for('static', filename= 'lang.png')}}" alt="Service 2">
+            <h3>Language Detection</h3>
+            <p>Programming Language Detection is the process of identifying the programming language used in a given
+                code snippet or file. It involves analyzing syntax, keywords, and other code features to determine
+                whether the code is written in languages like Python, Java, or C++. This helps in code analysis,
+                documentation, and automated tooling.</p>
+        </div>
+        <div class="box">
+            <img src="{{url_for('static', filename= 'meter.jpg')}}" alt="Service 3">
+            <h3>Sentiment Analysis</h3>
+            <p>Sentiment Analysis is the process of determining the emotional tone or sentiment expressed in a piece of
+                text. It classifies text as positive, negative, or neutral, and can provide insights into opinions,
+                attitudes, and emotions. This is commonly used in customer feedback, social media monitoring, and market
+                research.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; edit me</p>
+    </footer>
+
+</body>
+
+</html>
