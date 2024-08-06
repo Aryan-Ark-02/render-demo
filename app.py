@@ -1,6 +1,8 @@
 import requests
 from flask import Flask,render_template,request,redirect,session,url_for
 from DB import Database
+from PIL import Image
+from os import path
 
 obj = Database()
 
@@ -18,8 +20,32 @@ def Login():
 @app.route("/Weather")
 def Weather():
     return render_template('Weather.html')
+@app.route("/m")
+def m():
+    return render_template('m.html')
 
 # SEP
+
+@app.route("/upload", methods=['post'])
+def upload():
+    if 'file' not in request.files:
+        return 'No file part'
+    file = request.files['file']
+    if file.filename == '':
+        return 'No selected file'
+    if file:
+        # Save the file to the desired location
+        file.save(f'C:\\Users\HI\\Desktop\\render-demo\\static\\{file.filename}')
+        jugad_Path = '.\static\\'+file.filename
+        with Image.open('.\static\\'+file.filename) as img:
+            type = img.format
+            filepath = img.filename
+            width, height = img.size
+            mode = img.mode
+            file_size = path.getsize(jugad_Path)
+            file_name = path.basename(jugad_Path)
+        return render_template('m.html',type_=type,width_=width,height_=height,mode_=mode,jugad_Path_=jugad_Path,file_name=file_name,file_size=file_size)
+
 
 @app.route("/do-login", methods=['post'])
 def doLogin():

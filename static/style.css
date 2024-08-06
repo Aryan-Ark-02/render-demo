@@ -46,6 +46,10 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 .auth-links {
     position: absolute;
     top: 20px;

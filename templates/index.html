@@ -37,13 +37,25 @@
 
     <div class="content container">
         <h2>Our Services</h2>
-        <div class="box">
-            <img src="{{url_for('static', filename= 'WF.jpg')}}" alt="Service 1">
-            <h3>Today's Weather Forecast</h3>
-            <p>Weather forecasting predicts atmospheric conditions using data from observation stations, satellites, and
-                radars. It helps prepare for extreme weather, supports agriculture, aids transportation, and informs
-                daily decisions.</p>
-        </div>
+        <a href="/Weather">
+            <div class="box">
+                <img src="{{url_for('static', filename= 'WF.jpg')}}" alt="Service 1">
+                <h3>Today's Weather Forecast</h3>
+                <p>Weather forecasting predicts atmospheric conditions using data from observation stations, satellites,
+                    and
+                    radars. It helps prepare for extreme weather, supports agriculture, aids transportation, and informs
+                    daily decisions.</p>
+            </div>
+        </a>
+        <a href="/m">
+            <div class="box">
+                <img src="{{url_for('static', filename= 'Kitten.png')}}" alt="Service 1">
+                <h3>Meta data and EXIF data viewer</h3>
+                <p>Uncover hidden metadata from your photos. Find when and where the picture was taken. Image metadata
+                    is embedded information in a digital image file, detailing camera settings, date/time, GPS location,
+                    software used, and additional info like descriptions, keywords, and copyright.</p>
+            </div>
+        </a>
         <div class="box">
             <img src="{{url_for('static', filename= 'NER.png')}}" alt="Service 1">
             <h3>Named Entity Recognition</h3>

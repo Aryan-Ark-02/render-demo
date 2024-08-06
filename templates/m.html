@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clickable Div</title>
-    <style>
-        .clickable-link {
-            display: block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .clickable-link:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='m.css')}}" </head>
+
 <body>
-    <a href="https://example.com" class="clickable-link">
-        Clickable Div
-    </a>
+    <h1>Upload an Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if mode_ %}
+    <h2>Image Details ➔</h2>
+    <img src="{{ jugad_Path_ }}" alt="Uploaded Image" style="max-width: 20%;">
+    <ul>
+        <li>Name: {{ file_name }}</li>
+        <li>Size: {{ file_size }}</li>
+        <li>Dimensions: {{ width_ }}x{{ height_ }}</li>
+        <li>File Type: {{ type_ }}</li>
+        <li>Color Type: {{ mode_ }}</li>
+        <li>Path: {{ jugad_Path_ }}</li>
+    </ul>
+    {% endif %}
 </body>
+
 </html>
