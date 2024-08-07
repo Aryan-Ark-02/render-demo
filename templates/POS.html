@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Entry Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to left, rgb(109, 213, 250), rgb(41, 128, 185));
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            color: #ffeb3b;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            -webkit-text-stroke: 1px #333;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            height: 180px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 18px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #ffeb3b;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #fdd835;
+        }
+
+        h2 {
+            color: #ffeb3b;
+            -webkit-text-stroke: 0.5px #333;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Part of Speech Analyzer</h1>
+        <form action="/analyze" method="post">
+            <textarea id="textInput" name="textInput" placeholder="Type your text here..."></textarea>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if textInput %}
+        <h2>Part of Speech ➔</h2>
+
+        <p>{{textInput }}</p>
+        
+
+        <ul>
+            <li>Noun: {{ ", ".join(dictionary['NN']) }}</li>
+            <li>Pronoun: {{ ", ".join(dictionary['PRP']) }}</li>
+            <li>Verb: {{ ", ".join(dictionary['VV']) }}</li>
+            <li>Adverb: {{ ", ".join(dictionary['RB']) }}</li>
+            <li>Adjective: {{ ", ".join(dictionary['JJ']) }}</li>
+            <li>Conjunction: {{ ", ".join(dictionary['CC']) }}</li>
+            <li>Interjection: {{ ", ".join(dictionary['UH']) }}</li>
+            <li>Preposition: {{ ", ".join(dictionary['IN']) }}</li>
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
