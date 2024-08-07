@@ -121,5 +121,5 @@ def wetherForecast():
 
     return render_template('present.html',mainWeather_=mainWeather,weatherDescription_=weatherDescription,temp_=temp,feelsLike_=feelsLike,humidity_=humidity,city_=city) 
     
-app.run(debug=True)
+app.run(host="0.0.0.0", port=5000, debug=True)
 
