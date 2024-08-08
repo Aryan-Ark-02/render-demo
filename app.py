@@ -40,7 +40,7 @@ def upload():
     if file:
         # Save the file to the desired location
         file.save(f'C:\\Users\HI\\Desktop\\render-demo\\static\\{file.filename}')
-        jugad_Path = '.\static\\'+file.filename
+        jugad_Path = '.\\' + file.filename
         with Image.open('.\static\\'+file.filename) as img:
             type = img.format
             filepath = img.filename
