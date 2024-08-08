@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='m.css')}}" </head>
+    <link rel="stylesheet" href="{{url_for('static', filename='m.css')}}" 
+</head>
 
 <body>
     <h1>Upload an Image</h1>
@@ -16,14 +17,15 @@
 
     {% if mode_ %}
     <h2>Image Details ➔</h2>
-    <img src="{{ jugad_Path_ }}" alt="Uploaded Image" style="max-width: 20%;">
+    <!-- <img src="{{file}}" alt="Uploaded Image" style="max-width: 20%;"> -->
     <ul>
+        <li>Name: {{ filename }}</li>
         <li>Name: {{ file_name }}</li>
         <li>Size: {{ file_size }}</li>
         <li>Dimensions: {{ width_ }}x{{ height_ }}</li>
         <li>File Type: {{ type_ }}</li>
         <li>Color Type: {{ mode_ }}</li>
-        <li>Path: {{ jugad_Path_ }}</li>
+
     </ul>
     {% endif %}
 </body>

@@ -1,13 +1,22 @@
 import requests
-from flask import Flask,render_template,request,redirect,session,url_for
+from flask import Flask,render_template,request,redirect,session,url_for,flash
 from DB import Database
 from PIL import Image
-from os import path
+import os
 import nltk
+from werkzeug.utils import secure_filename
 
 obj = Database()
 
+UPLOAD_FOLDER = 'C:\\Users\\HI\\Desktop\\Solaris\\Bugg\\Static'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/")
 def Home():
@@ -39,16 +48,16 @@ def upload():
         return 'No selected file'
     if file:
         # Save the file to the desired location
-        file.save(f'C:\\Users\HI\\Desktop\\render-demo\\static\\{file.filename}')
-        jugad_Path = '.\static\\'+file.filename
-        with Image.open('.\\'+file.filename) as img:
-            type = img.format
-            filepath = img.filename
-            width, height = img.size
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        with Image.open(file) as img:
             mode = img.mode
-            file_size = path.getsize(jugad_Path)
-            file_name = path.basename(jugad_Path)
-        return render_template('m.html',type_=type,width_=width,height_=height,mode_=mode,jugad_Path_=jugad_Path,file_name=file_name,file_size=file_size)
+            Type = img.format
+            width, height = img.size
+            file_size = os.path.getsize('C:\\Users\\HI\\Desktop\\Solaris\\Bugg\\Static\\'+filename)
+            file_name = os.path.basename('C:\\Users\\HI\\Desktop\\Solaris\\Bugg\\Static\\'+filename)
+
+        return render_template('m.html',mode_=mode,type_=Type,width_=width,height_=height,filename=filename,file_name=file_name,file_size=file_size,file=file)
 
 
 @app.route("/analyze", methods=['post'])
@@ -122,4 +131,3 @@ def wetherForecast():
     return render_template('present.html',mainWeather_=mainWeather,weatherDescription_=weatherDescription,temp_=temp,feelsLike_=feelsLike,humidity_=humidity,city_=city) 
     
 app.run(host="0.0.0.0", port=5000, debug=True)
-
