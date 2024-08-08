@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 obj = Database()
 
-UPLOAD_FOLDER = 'C:\\Users\\HI\Desktop\\render-demo\\static'
+UPLOAD_FOLDER = 'C:\\Users\\HI\Desktop\\render-demo\\uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 
 app = Flask(__name__)
@@ -54,8 +54,8 @@ def upload():
             mode = img.mode
             Type = img.format
             width, height = img.size
-            file_size = os.path.getsize('C:\\Users\\HI\Desktop\\render-demo\\static\\'+filename)
-            file_name = os.path.basename('C:\\Users\\HI\Desktop\\render-demo\\static\\'+filename)
+            file_size = os.path.getsize('C:\\Users\\HI\Desktop\\render-demo\\uploads\\'+filename)
+            file_name = os.path.basename('C:\\Users\\HI\Desktop\\render-demo\\uploads\\'+filename)
 
         return render_template('m.html',mode_=mode,type_=Type,width_=width,height_=height,filename=filename,file_name=file_name,file_size=file_size,file=file)
 
